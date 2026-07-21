@@ -1,0 +1,35 @@
+[
+  {
+    "id": "travel-manager",
+    "name": "TravelManager",
+    "description": "Sistema completo de gestión y reserva de viajes con autenticación JWT, panel de administración y consulta de itinerarios en tiempo real.",
+    "technologies": [".NET", "Angular", "SQL Server", "JWT", "REST API"],
+    "github": "https://github.com/ManuelRivasDev/TravelManager",
+    "demo": "https://travelmanager-demo.vercel.app",
+    "image": "assets/images/travelmanager.webp",
+    "featured": true,
+    "category": "fullstack"
+  },
+  {
+    "id": "payment-api",
+    "name": "Payment API",
+    "description": "API REST robusta e integrada para la gestión y procesamiento seguro de pagos de transacciones con arquitectura limpia y especificación OpenAPI.",
+    "technologies": ["ASP.NET Core", "Entity Framework", "SQL Server", "Swagger", "C#"],
+    "github": "https://github.com/ManuelRivasDev/PaymentAPI",
+    "demo": "https://paymentapi.swagger.io",
+    "image": "assets/images/paymentapi.webp",
+    "featured": true,
+    "category": "backend"
+  },
+  {
+    "id": "qa-testing-project",
+    "name": "QA Testing Suite",
+    "description": "Suite integral de pruebas automáticas y funcionales demostrando validaciones de API REST, casos de prueba estructurados y documentación técnica de calidad.",
+    "technologies": ["Postman", "API Testing", "Testing Funcional", "Selenium", "Documentation"],
+    "github": "https://github.com/ManuelRivasDev/QA-Testing-Suite",
+    "demo": "",
+    "image": "assets/images/qatesting.webp",
+    "featured": true,
+    "category": "qa"
+  }
+]
