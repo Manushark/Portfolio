@@ -1,23 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillCategory } from '../../core/models/skill.model';
+import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
+import { BadgeComponent } from '../../shared/components/badge/badge.component';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SectionHeaderComponent, BadgeComponent],
   template: `
     <section id="skills" class="py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Title -->
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-4xl">
-            Habilidades <span class="text-blue-500">Técnicas</span>
-          </h2>
-          <p class="mt-3 text-base text-gray-600 dark:text-gray-400 font-mono">
-            Stack tecnológico especializado en desarrollo Backend, Frontend y QA
-          </p>
-        </div>
+        <!-- Section Header -->
+        <app-section-header
+          titlePrefix="Habilidades"
+          titleHighlight="Técnicas"
+          subtitle="Stack tecnológico especializado en desarrollo Backend, Frontend y QA">
+        </app-section-header>
 
         <!-- Skills Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -40,11 +39,11 @@ import { SkillCategory } from '../../core/models/skill.model';
                 </div>
 
                 <!-- Skill Badges -->
-                <div class="flex flex-wrap gap-2.5">
+                <div class="flex flex-wrap gap-2">
                   @for (skill of category.skills; track skill) {
-                    <span class="px-3.5 py-1.5 text-xs font-mono font-medium rounded-lg bg-gray-100 dark:bg-gray-700/60 text-gray-800 dark:text-gray-200 border border-gray-200/80 dark:border-gray-600/50 hover:bg-blue-500/10 hover:text-blue-500 hover:border-blue-500/30 transition-all cursor-default">
+                    <app-badge variant="outline">
                       {{ skill }}
-                    </span>
+                    </app-badge>
                   }
                 </div>
               </div>
