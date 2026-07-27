@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BadgeComponent } from '../../shared/components/badge/badge.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BadgeComponent, ButtonComponent],
   template: `
     <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       <!-- Background Glow Effects -->
@@ -13,9 +15,11 @@ import { CommonModule } from '@angular/common';
 
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <!-- Status Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 mb-8 animate-fade-in">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Disponible para nuevas oportunidades laborales</span>
+        <div class="inline-flex items-center gap-2 mb-8 animate-fade-in">
+          <app-badge variant="primary">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Disponible para nuevas oportunidades laborales</span>
+          </app-badge>
         </div>
 
         <!-- Name & Title -->
@@ -34,44 +38,50 @@ import { CommonModule } from '@angular/common';
         <!-- Main Technologies Tags -->
         <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
           @for (tech of mainTechs; track tech) {
-            <span class="px-3 py-1 text-xs font-mono font-semibold rounded-md bg-gray-100 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700/60 shadow-sm">
+            <app-badge variant="outline">
               {{ tech }}
-            </span>
+            </app-badge>
           }
         </div>
 
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <!-- Download CV -->
-          <a
+          <app-button
+            variant="primary"
+            size="lg"
             href="assets/docs/CV_Manuel_Rivas.pdf"
             download="CV_Manuel_Rivas.pdf"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/25 transition-all hover:-translate-y-0.5">
+            customClass="w-full sm:w-auto">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
-            Descargar CV
-          </a>
+            <span>Descargar CV</span>
+          </app-button>
 
           <!-- View Projects -->
-          <a
+          <app-button
+            variant="secondary"
+            size="lg"
             href="#projects"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800/80 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 transition-all hover:-translate-y-0.5">
+            customClass="w-full sm:w-auto">
             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
             </svg>
-            Ver proyectos
-          </a>
+            <span>Ver proyectos</span>
+          </app-button>
 
           <!-- Contact -->
-          <a
+          <app-button
+            variant="outline"
+            size="lg"
             href="#contact"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 border border-blue-200 dark:border-blue-800/60 transition-all hover:-translate-y-0.5">
+            customClass="w-full sm:w-auto">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            Contactar
-          </a>
+            <span>Contactar</span>
+          </app-button>
         </div>
       </div>
     </section>
