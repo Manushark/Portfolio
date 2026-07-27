@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SectionHeaderComponent],
   template: `
     <section id="about" class="py-20 bg-gray-50/50 dark:bg-gray-900/40 border-y border-gray-200/60 dark:border-gray-800/60">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-14">
-          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-4xl">
-            Sobre <span class="text-blue-500">Mí</span>
-          </h2>
-          <p class="mt-3 text-base text-gray-600 dark:text-gray-400 font-mono">
-            Trayectoria académica, valores y enfoque profesional
-          </p>
-        </div>
+        <app-section-header
+          titlePrefix="Sobre"
+          titleHighlight="Mí"
+          subtitle="Trayectoria académica, valores y enfoque profesional">
+        </app-section-header>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <!-- Main Narrative Card -->
@@ -29,7 +27,7 @@ import { CommonModule } from '@angular/common';
                 Soy un desarrollador de software con formación sólida enfocado en crear soluciones eficientes, escalables y bien testeadas. Mi fortaleza radica en la construcción de APIs REST robustas con <strong class="text-blue-600 dark:text-blue-400">.NET & C#</strong>, la integración con bases de datos relacionales como <strong class="text-gray-900 dark:text-white">SQL Server</strong> y la creación de interfaces web reactivas en <strong class="text-gray-900 dark:text-white">Angular</strong>.
               </p>
               <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                Gracias a mi experiencia previa en **QA Testing**, aplico un enfoque riguroso en la prevención de fallos, diseño de casos de prueba y aseguramiento de la calidad desde las etapas iniciales del desarrollo.
+                Gracias a mi experiencia previa en <strong>QA Testing</strong>, aplico un enfoque riguroso en la prevención de fallos, diseño de casos de prueba y aseguramiento de la calidad desde las etapas iniciales del desarrollo.
               </p>
             </div>
 
@@ -50,9 +48,9 @@ import { CommonModule } from '@angular/common';
             </div>
           </div>
 
-          <!-- Highlight Highlights Grid -->
+          <!-- Highlights Grid -->
           <div class="lg:col-span-5 flex flex-col justify-between gap-4">
-            <!-- Practical Experience Highlights -->
+            <!-- QA Experience Highlights -->
             <div class="bg-white dark:bg-gray-800/80 p-6 rounded-2xl border border-gray-200 dark:border-gray-700/70 shadow-sm">
               <div class="flex items-center gap-3 mb-3">
                 <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-500 font-bold">
