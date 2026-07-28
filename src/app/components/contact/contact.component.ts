@@ -1,23 +1,22 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, SectionHeaderComponent, ButtonComponent],
   template: `
     <section id="contact" class="py-20">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-14">
-          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-4xl">
-            Ponte en <span class="text-blue-500">Contacto</span>
-          </h2>
-          <p class="mt-3 text-base text-gray-600 dark:text-gray-400 font-mono">
-            ¿Tienes alguna propuesta o vacante? Escríbeme directamente
-          </p>
-        </div>
+        <app-section-header
+          titlePrefix="Ponte en"
+          titleHighlight="Contacto"
+          subtitle="¿Tienes alguna propuesta o vacante? Escríbeme directamente">
+        </app-section-header>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
           <!-- Info Sidebar -->
@@ -25,7 +24,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
             <div>
               <h3 class="text-2xl font-bold mb-4">Hablemos 👋</h3>
               <p class="text-blue-100 text-sm leading-relaxed mb-8">
-                Estoy buscando activamente roles como **Junior .NET Developer**, **Backend Developer** o **QA Engineer**. ¡Respondo rápidamente!
+                Estoy buscando activamente roles como <strong>Junior .NET Developer</strong>, <strong>Backend Developer</strong> o <strong>QA Engineer</strong>. ¡Respondo rápidamente!
               </p>
 
               <div class="space-y-4 text-sm font-medium">
@@ -72,11 +71,9 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                 <p class="text-sm text-gray-600 dark:text-gray-300 mb-6">
                   Gracias por comunicarte conmigo, Manuel Rivas te responderá a la brevedad.
                 </p>
-                <button
-                  (click)="resetForm()"
-                  class="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-500 transition-colors">
+                <app-button (click)="resetForm()" variant="primary">
                   Enviar otro mensaje
-                </button>
+                </app-button>
               </div>
             } @else {
               <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-5" data-netlify="true">
@@ -132,10 +129,12 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                 </div>
 
                 <!-- Submit Button -->
-                <button
+                <app-button
                   type="submit"
+                  variant="primary"
+                  size="lg"
                   [disabled]="contactForm.invalid || isSubmitting()"
-                  class="w-full py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                  customClass="w-full">
                   @if (isSubmitting()) {
                     <svg class="animate-spin w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -148,7 +147,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                     </svg>
                   }
-                </button>
+                </app-button>
               </form>
             }
           </div>
