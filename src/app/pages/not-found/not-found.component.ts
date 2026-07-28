@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { BadgeComponent } from '../../shared/components/badge/badge.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { SeoService } from '../../core/services/seo.service';
@@ -8,7 +7,7 @@ import { SeoService } from '../../core/services/seo.service';
 @Component({
   selector: 'app-not-found',
   standalone: true,
-  imports: [CommonModule, RouterLink, BadgeComponent, ButtonComponent],
+  imports: [CommonModule, BadgeComponent, ButtonComponent],
   template: `
     <div class="min-h-screen bg-slate-900 text-gray-100 flex items-center justify-center p-6 relative overflow-hidden">
       <!-- Ambient Glow -->
