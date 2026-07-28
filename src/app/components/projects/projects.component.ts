@@ -3,38 +3,32 @@ import { CommonModule } from '@angular/common';
 import { ProjectService } from '../../core/services/project.service';
 import { Project } from '../../core/models/project.model';
 import { ProjectCardComponent } from '../project-card/project-card.component';
+import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent],
+  imports: [CommonModule, ProjectCardComponent, SectionHeaderComponent, ButtonComponent],
   template: `
     <section id="projects" class="py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-4xl">
-            Proyectos <span class="text-blue-500">Destacados</span>
-          </h2>
-          <p class="mt-3 text-base text-gray-600 dark:text-gray-400 font-mono">
-            Proyectos reales cargados dinámicamente desde JSON con stack .NET, Angular y QA
-          </p>
-        </div>
+        <app-section-header
+          titlePrefix="Proyectos"
+          titleHighlight="Destacados"
+          subtitle="Proyectos reales cargados dinámicamente desde JSON con stack .NET, Angular y QA">
+        </app-section-header>
 
         <!-- Filter Buttons -->
         <div class="flex items-center justify-center gap-2 mb-12 flex-wrap">
           @for (cat of categories; track cat.value) {
-            <button
-              (click)="selectedCategory.set(cat.value)"
-              [class.bg-blue-600]="selectedCategory() === cat.value"
-              [class.text-white]="selectedCategory() === cat.value"
-              [class.bg-gray-100]="selectedCategory() !== cat.value"
-              [class.dark:bg-gray-800]="selectedCategory() !== cat.value"
-              [class.text-gray-700]="selectedCategory() !== cat.value"
-              [class.dark:text-gray-300]="selectedCategory() !== cat.value"
-              class="px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all border border-gray-200 dark:border-gray-700">
+            <app-button
+              [variant]="selectedCategory() === cat.value ? 'primary' : 'secondary'"
+              size="sm"
+              (click)="selectedCategory.set(cat.value)">
               {{ cat.label }}
-            </button>
+            </app-button>
           }
         </div>
 
