@@ -1,6 +1,6 @@
 # Portfolio Profesional - Manuel Rivas 🚀
 
-Sitio web portfolio moderno, responsivo y de alto rendimiento diseñado como carta de presentación profesional para postulaciones a puestos de **Junior .NET Developer**, **Backend Developer** y **QA Engineer**.
+Sitio web portfolio moderno, limpio, rápido y de alto rendimiento diseñado como carta de presentación profesional para postulaciones a puestos de **Junior .NET Developer**, **Backend Developer** y **QA Engineer**.
 
 ![Angular Version](https://img.shields.io/badge/Angular-19+-dd0031.svg?style=flat-square&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict%20Mode-3178c6.svg?style=flat-square&logo=typescript)
@@ -12,11 +12,12 @@ Sitio web portfolio moderno, responsivo y de alto rendimiento diseñado como car
 ## 🛠️ Tecnologías Principales
 
 - **Framework**: Angular 19+ (Standalone Components Architecture)
-- **Lenguaje**: TypeScript (Strict Mode)
-- **Estilos**: Tailwind CSS + SCSS + Glassmorphic Design Token System
-- **Enrutamiento**: Angular Router (Lazy Loading & Smooth Anchor Restoration)
-- **Estado & Datos**: Angular Signals & RxJS HTTP Client
-- **Control de Versiones & CI/CD**: Git & Vercel Auto-Deployment
+- **Lenguaje**: TypeScript (Strict Mode, Interfaces tipadas sin `any`)
+- **Estilos**: SCSS + Tailwind CSS + Glassmorphism Design System
+- **Enrutamiento**: Angular Router (Lazy Loading & Smooth Anchor Scrolling)
+- **Gestión de Estado**: Angular Signals & RxJS HTTP Client
+- **Servicios Core**: `ThemeService` (Dark Mode), `ProjectService` (JSON), `SeoService` (SEO & Metatags)
+- **Control de Versiones & CI/CD**: Git & Vercel Auto-Deployment desde GitHub
 
 ---
 
@@ -25,23 +26,35 @@ Sitio web portfolio moderno, responsivo y de alto rendimiento diseñado como car
 ```text
 src/app/
 ├── core/               # Servicios singleton, modelos TypeScript e interfaces globales
-│   ├── models/         # Interfaces (Project, ExperienceItem, SkillCategory)
+│   ├── models/         # Interfaces TypeScript (Project, ExperienceItem, SkillCategory)
 │   └── services/       # ThemeService (Dark Mode), ProjectService (JSON), SeoService
-├── shared/             # Componentes, directivas y pipes reutilizables
+├── shared/             # Componentes UI reutilizables
+│   └── components/     # BadgeComponent, ButtonComponent, SectionHeaderComponent
 ├── components/         # Secciones modulares de la interfaz
-│   ├── navbar/         # Navegación fija con blur y switch de tema
-│   ├── hero/           # Presentación principal, stack clave y descargas
-│   ├── about/          # Perfil profesional, formación y pilares
-│   ├── skills/         # Tarjetas de competencias (Backend, Frontend, QA)
-│   ├── project-card/   # Tarjetas dinámicas con enlaces a GitHub/Demo
-│   ├── projects/       # Grid dinámico con filtrado por categoría
-│   ├── timeline/       # Línea de tiempo de experiencia laboral
-│   ├── contact/        # Formulario reactivo validado
-│   └── footer/         # Pie de página y enlaces sociales
+│   ├── navbar/         # Navegación fija glassmorphism, switch de tema y menú móvil
+│   ├── hero/           # Presentación principal, stack clave y botones de acción
+│   ├── about/          # Perfil profesional, formación y pilares de trabajo
+│   ├── skills/         # Tarjetas de competencias agrupadas (Backend, Frontend, QA)
+│   ├── project-card/   # Tarjetas dinámicas con enlaces a GitHub/Demo y badges de stack
+│   ├── projects/       # Grid dinámico con filtrado por categoría cargado desde JSON
+│   ├── timeline/       # Línea de tiempo interactiva de experiencia laboral
+│   ├── contact/        # Formulario reactivo validado con ReactiveFormsModule
+│   └── footer/         # Pie de página y enlaces sociales (GitHub, LinkedIn, Email)
 └── pages/              # Vistas principales de enrutamiento
-    ├── home/           # Página de inicio ensamblada
-    └── not-found/      # Vista 404 personalizada
+    ├── home/           # Página de inicio principal ensamblada
+    └── not-found/      # Vista 404 personalizada y responsiva
 ```
+
+---
+
+## ✨ Características Principales
+
+- 🌙 **Dark Mode nativo con persistencia**: Switch de tema oscuro/claro impulsado por Angular Signals y sincronizado con `localStorage` y preferencias del sistema.
+- ⚡ **Rendimiento optimizado & Carga perezosa**: Enrutamiento mediante Lazy Loading y generación de paquetes livianos.
+- 🎨 **Diseño Moderno & Glassmorphism**: Estética limpia inspirada en GitHub, Linear y Vercel con micro-animaciones en hover y transiciones suaves.
+- 📊 **Carga de Proyectos Dinámica**: Los proyectos se consumen desde `assets/data/projects.json` mediante un servicio inyectable `ProjectService`.
+- 📱 **Diseño 100% Responsivo**: Adaptado perfectamente para pantallas de Móvil, Tablet y Desktop.
+- 🔍 **SEO & Meta Tags**: Título y descripciones dinámicas para motores de búsqueda y vista previa en redes sociales (OpenGraph & Twitter Cards).
 
 ---
 
@@ -61,28 +74,28 @@ npm install
 ### 3. Iniciar servidor de desarrollo
 ```bash
 npm start
+# o
+npx ng serve
 ```
-Abre tu navegador en `http://localhost:4200/`. La aplicación se recargará automáticamente al modificar archivos.
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente al realizar cambios.
 
 ### 4. Compilar para producción
 ```bash
 npm run build
 ```
-Los archivos optimizados para producción se generarán en el directorio `dist/portfolio`.
+Los archivos compilados y optimizados se generarán en el directorio `dist/portfolio`.
 
 ---
 
 ## ⚡ Despliegue en Vercel
 
-El proyecto está 100% configurado para despliegue continuo (CI/CD) desde GitHub en **Vercel**:
+El proyecto cuenta con el archivo `vercel.json` configurado para manejar el enrutamiento de la SPA y CI/CD automático en **Vercel**:
 
-1. Sube tu código a GitHub.
+1. Sube tu código a un repositorio de GitHub.
 2. Ingresa a [Vercel](https://vercel.com/) e inicia sesión con tu cuenta de GitHub.
-3. Haz clic en **"Add New Project"** e importa el repositorio de tu portfolio.
-4. Selecciona el Preset **Angular**.
+3. Haz clic en **"Add New Project"** e importa tu repositorio.
+4. Selecciona el Preset de Framework **Angular**.
 5. Haz clic en **Deploy**.
-
-> **Nota**: El archivo `vercel.json` incluido maneja automáticamente la reescritura de rutas para Angular Single Page Application (SPA).
 
 ---
 
