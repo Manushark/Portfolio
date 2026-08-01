@@ -24,15 +24,15 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 
         <!-- Name & Title -->
         <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4 animate-slide-up">
-          Hola, soy <span class="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Manuel Rivas</span>
+          Hola, soy <span class="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Manuel de Jesús Rivas</span>
         </h1>
         <p class="text-xl sm:text-2xl font-mono font-medium text-gray-600 dark:text-gray-300 mb-6">
-          Junior Software Developer &bull; .NET &bull; Angular &bull; QA
+          Junior Software Developer &bull; Backend .NET &bull; Angular &bull; QA
         </p>
 
         <!-- Description -->
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-          "Desarrollador de software enfocado en backend con <strong class="text-gray-900 dark:text-gray-200">.NET</strong> y experiencia en <strong class="text-gray-900 dark:text-gray-200">QA Testing</strong>, desarrollo de APIs REST y aplicaciones web."
+          "Desarrollador de software enfocado en backend con <strong class="text-gray-900 dark:text-gray-200">.NET 8 & C#</strong>, integración con <strong class="text-gray-900 dark:text-gray-200">SQL Server & MongoDB</strong> y experiencia en <strong class="text-gray-900 dark:text-gray-200">QA Testing</strong> y desarrollo de aplicaciones web."
         </p>
 
         <!-- Main Technologies Tags -->
@@ -45,42 +45,57 @@ import { ButtonComponent } from '../../shared/components/button/button.component
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <!-- Download CV -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <!-- Download CV (Español) -->
           <app-button
             variant="primary"
-            size="lg"
+            size="md"
             href="assets/docs/CV_Manuel_Rivas.pdf"
             download="CV_Manuel_Rivas.pdf"
-            customClass="w-full sm:w-auto">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            target="_blank"
+            customClass="w-full sm:w-auto shadow-md">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
-            <span>Descargar CV</span>
+            <span>Descargar CV (ES)</span>
+          </app-button>
+
+          <!-- Download CV (English) -->
+          <app-button
+            variant="secondary"
+            size="md"
+            href="assets/docs/CV_Manuel_Rivas_EN.pdf"
+            download="CV_Manuel_Rivas_EN.pdf"
+            target="_blank"
+            customClass="w-full sm:w-auto shadow-sm">
+            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span>Download CV (EN)</span>
           </app-button>
 
           <!-- View Projects -->
           <app-button
-            variant="secondary"
-            size="lg"
+            variant="outline"
+            size="md"
             href="#projects"
             customClass="w-full sm:w-auto">
             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
             </svg>
-            <span>Ver proyectos</span>
+            <span>Ver Proyectos</span>
           </app-button>
 
           <!-- Contact -->
           <app-button
-            variant="outline"
-            size="lg"
+            variant="ghost"
+            size="md"
             href="#contact"
-            customClass="w-full sm:w-auto">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            customClass="w-full sm:w-auto border border-gray-200 dark:border-gray-700">
+            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            <span>Contactar</span>
+            <span>Ir a Contacto</span>
           </app-button>
         </div>
       </div>
@@ -88,5 +103,5 @@ import { ButtonComponent } from '../../shared/components/button/button.component
   `
 })
 export class HeroComponent {
-  public mainTechs: string[] = ['.NET', 'C#', 'ASP.NET Core', 'Angular', 'SQL Server', 'QA Testing'];
+  public mainTechs: string[] = ['.NET 8', 'C#', 'SQL Server', 'MongoDB', 'Angular', 'React/Vite', 'Postman', 'QA Testing'];
 }
