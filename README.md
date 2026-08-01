@@ -1,4 +1,4 @@
-# Portfolio Profesional - Manuel Rivas 🚀
+# Portfolio Profesional - Manuel Rivas 
 
 Sitio web portfolio moderno, limpio, rápido y de alto rendimiento diseñado como carta de presentación profesional para postulaciones a puestos de **Junior .NET Developer**, **Backend Developer** y **QA Engineer**.
 
