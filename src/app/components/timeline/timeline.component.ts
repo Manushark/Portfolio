@@ -15,7 +15,7 @@ import { BadgeComponent } from '../../shared/components/badge/badge.component';
         <app-section-header
           titlePrefix="Línea de"
           titleHighlight="Tiempo Profesional"
-          subtitle="Experiencia práctica en desarrollo de software y control de calidad">
+          subtitle="Experiencia práctica en desarrollo backend .NET y aseguramiento de calidad QA">
         </app-section-header>
 
         <!-- Timeline Container -->
@@ -33,32 +33,32 @@ import { BadgeComponent } from '../../shared/components/badge/badge.component';
                   <div>
                     <div class="mb-2">
                       <app-badge variant="primary">
-                        {{ item.year }}
+                        {{ item.period }}
                       </app-badge>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white">
                       {{ item.role }}
                     </h3>
                   </div>
-                  <div class="text-sm font-mono font-semibold text-gray-700 dark:text-gray-300">
+                  <div class="text-sm font-mono font-semibold text-blue-600 dark:text-blue-400">
                     🏢 {{ item.company }}
                   </div>
                 </div>
 
                 <h4 class="text-xs font-mono font-semibold uppercase tracking-wider text-gray-400 mb-3">
-                  Responsabilidades Clave:
+                  Responsabilidades y Logros:
                 </h4>
-                <ul class="space-y-2 mb-4">
+                <ul class="space-y-2.5 mb-5">
                   @for (resp of item.responsibilities; track resp) {
-                    <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <span class="text-blue-500 mt-1">▹</span>
+                    <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <span class="text-blue-500 mt-1 font-bold">▹</span>
                       <span>{{ resp }}</span>
                     </li>
                   }
                 </ul>
 
                 @if (item.skills) {
-                  <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-100 dark:border-gray-700/50">
+                  <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100 dark:border-gray-700/50">
                     @for (skill of item.skills; track skill) {
                       <app-badge variant="outline">
                         #{{ skill }}
@@ -78,25 +78,25 @@ export class TimelineComponent {
   public experiences: ExperienceItem[] = [
     {
       year: '2026',
-      role: 'QA Intern',
-      company: 'Banreservas',
+      period: 'Abril – Junio 2026',
+      role: 'Pasante QA | Garantía de Calidad del Software',
+      company: 'Banreservas (CTB)',
       responsibilities: [
-        'Ejecución de pruebas funcionales end-to-end en plataformas bancarias.',
-        'Pruebas exhaustivas de API REST utilizando Postman y automatización de colecciones.',
-        'Validación de reglas de negocio, integridad de servicios web y reporte de incidencias.'
+        'Ejecución de pruebas funcionales y de integración de APIs mediante Postman y cURL, verificando el cumplimiento estricto de requerimientos funcionales.',
+        'Configuración de datos de prueba y tarjetas de prueba en el sistema core bancario para validar flujos transaccionales de productos de tarjetas de crédito.'
       ],
-      skills: ['Postman', 'API Validation', 'Functional Testing', 'Bug Reporting']
+      skills: ['Postman', 'cURL', 'API Testing', 'Pruebas Funcionales', 'Core Banking', 'QA']
     },
     {
       year: '2026',
-      role: 'Backend Developer Intern',
-      company: 'Tetris SRL',
+      period: 'Ene – Mar 2026',
+      role: 'Pasante Desarrollador Backend (AppSalud)',
+      company: 'Tectrics SRL',
       responsibilities: [
-        'Desarrollo backend en C# utilizando .NET y ASP.NET Core.',
-        'Creación y documentación de endpoints RESTful con Swagger.',
-        'Mantenimiento, refactorización de código y optimización de módulos existentes.'
+        'Desarrollo e implementación de módulos clínicos del sistema AppSalud utilizando .NET 8, React/Vite, SQL Server y MongoDB estructurado bajo Clean Architecture y patrón CQRS.',
+        'Colaboración activa en equipo Scrum utilizando Azure DevOps para la gestión de tareas, sprints y control de versiones con Git.'
       ],
-      skills: ['.NET', 'C#', 'ASP.NET Core', 'REST API', 'Entity Framework']
+      skills: ['.NET 8', 'C#', 'Clean Architecture', 'CQRS', 'SQL Server', 'MongoDB', 'React/Vite', 'Azure DevOps', 'Scrum']
     }
   ];
 }

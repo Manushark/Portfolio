@@ -29,26 +29,34 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 
               <div class="space-y-4 text-sm font-medium">
                 <div class="flex items-center gap-3">
-                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md">📧</div>
+                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md text-base">📧</div>
                   <div>
-                    <div class="text-xs text-blue-200">Email Directo</div>
-                    <a href="mailto:manuel.rivas.dev@gmail.com" class="hover:underline font-mono text-xs">manuel.rivas.dev&#64;gmail.com</a>
+                    <div class="text-xs text-blue-200">Correo Electrónico</div>
+                    <a href="mailto:manuelrivas.1023@gmail.com" class="hover:underline font-mono text-xs">manuelrivas.1023&#64;gmail.com</a>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-3">
-                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md">📍</div>
+                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md text-base">📱</div>
+                  <div>
+                    <div class="text-xs text-blue-200">Teléfono / WhatsApp</div>
+                    <a href="tel:+18096984224" class="hover:underline font-mono text-xs">+1 809-698-4224</a>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md text-base">📍</div>
                   <div>
                     <div class="text-xs text-blue-200">Ubicación</div>
-                    <div class="text-xs">Santo Domingo, Rep. Dominicana</div>
+                    <div class="text-xs">Cristo Rey, Distrito Nacional, R.D.</div>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-3">
-                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md">💻</div>
+                  <div class="p-2.5 rounded-lg bg-white/10 backdrop-blur-md text-base">🐙</div>
                   <div>
-                    <div class="text-xs text-blue-200">Modalidad</div>
-                    <div class="text-xs">Remoto / Presencial / Híbrido</div>
+                    <div class="text-xs text-blue-200">GitHub</div>
+                    <a href="https://github.com/Manushark" target="_blank" rel="noopener noreferrer" class="hover:underline font-mono text-xs">github.com/Manushark</a>
                   </div>
                 </div>
               </div>
