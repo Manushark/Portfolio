@@ -22,6 +22,17 @@
     "category": "backend"
   },
   {
+    "id": "poke-app",
+    "name": "PokéApp",
+    "description": "Aplicación web interactiva desarrollada en Angular e integrada con la PokéAPI. Incluye explorador Pokédex de +1025 Pokémon, generador aleatorio, estadísticas gráficas de combate, cadenas evolutivas completas y soporte para modo oscuro.",
+    "technologies": ["Angular", "TypeScript", "PokéAPI", "REST API", "HTML5", "CSS3", "Netlify"],
+    "github": "https://github.com/Manushark/PokeApp.git",
+    "demo": "https://poke-appz.netlify.app/login",
+    "image": "assets/images/pokeapp.png",
+    "featured": true,
+    "category": "frontend"
+  },
+  {
     "id": "qa-testing-project",
     "name": "QA Testing Suite",
     "description": "Suite integral de pruebas automáticas y funcionales demostrando validaciones de API REST, casos de prueba estructurados y documentación técnica de calidad.",
