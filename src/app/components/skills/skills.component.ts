@@ -66,19 +66,19 @@ export class SkillsComponent {
       title: 'Backend .NET',
       description: 'Arquitectura de servidores y APIs REST',
       icon: '⚙️',
-      skills: ['C#', 'ASP.NET Core', 'Entity Framework', 'LINQ', 'REST API', 'SQL Server']
+      skills: ['C#', '.NET 8', 'Entity Framework Core', 'Clean Architecture', 'CQRS', 'SQL Server', 'MongoDB', 'REST API']
     },
     {
       title: 'Frontend Web',
       description: 'Interfaces modernas y reactivas',
       icon: '🌐',
-      skills: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS']
+      skills: ['Angular', 'React', 'Vite', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS']
     },
     {
-      title: 'QA & Testing',
-      description: 'Aseguramiento de calidad y validación',
+      title: 'QA & DevOps',
+      description: 'Calidad, pruebas y gestión ágil',
       icon: '🧪',
-      skills: ['Postman', 'API Testing', 'Testing Funcional', 'Casos de Prueba', 'Selenium']
+      skills: ['Postman', 'cURL', 'API Testing', 'Testing Funcional', 'Azure DevOps', 'Jira', 'Git & GitHub', 'Scrum']
     }
   ];
 }
