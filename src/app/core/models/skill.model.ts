@@ -8,5 +8,6 @@ export interface SkillCategory {
   title: string;
   description: string;
   icon: string;
+  iconPath?: string;
   skills: string[];
 }
