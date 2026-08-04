@@ -5,6 +5,7 @@ import { Project } from '../../core/models/project.model';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
+import { ProjectModalComponent } from '../../shared/components/project-modal/project-modal.component';
 
 interface Category {
   label: string;
@@ -14,11 +15,10 @@ interface Category {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent, SectionHeaderComponent, ScrollRevealDirective],
+  imports: [CommonModule, ProjectCardComponent, SectionHeaderComponent, ScrollRevealDirective, ProjectModalComponent],
   styles: [`
     :host { display: contents; }
 
-    /* Pill slider — active category indicator */
     .filter-btn {
       position: relative;
       transition:
@@ -43,7 +43,6 @@ interface Category {
       box-shadow: 0 2px 12px rgba(59,130,246,0.4);
     }
 
-    /* Skeleton shimmer */
     .skeleton-card {
       background: linear-gradient(
         90deg,
@@ -70,7 +69,6 @@ interface Category {
       100% { background-position: 200% 0; }
     }
 
-    /* Grid stagger on load */
     .project-item {
       animation: projectEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
@@ -108,17 +106,20 @@ interface Category {
 
         <!-- Loading Skeletons -->
         @if (isLoading()) {
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @for (i of [1, 2, 3]; track i) {
-              <div class="skeleton-card h-80 rounded-2xl"></div>
+              <div class="skeleton-card h-96 rounded-2xl"></div>
             }
           </div>
         } @else {
-          <!-- Projects Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Projects Grid — 2 columns for bigger cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @for (project of filteredProjects(); track project.id || project.name; let i = $index) {
               <div class="project-item h-full" [style.animation-delay]="(i * 80) + 'ms'">
-                <app-project-card [project]="project"></app-project-card>
+                <app-project-card
+                  [project]="project"
+                  (viewDetails)="openModal($event)">
+                </app-project-card>
               </div>
             } @empty {
               <div class="col-span-full text-center py-16">
@@ -134,6 +135,14 @@ interface Category {
         }
       </div>
     </section>
+
+    <!-- Modal rendered HERE — outside all transformed cards -->
+    @if (selectedProject()) {
+      <app-project-modal
+        [project]="selectedProject()!"
+        (close)="closeModal()">
+      </app-project-modal>
+    }
   `
 })
 export class ProjectsComponent implements OnInit {
@@ -142,12 +151,14 @@ export class ProjectsComponent implements OnInit {
   public projects = signal<Project[]>([]);
   public isLoading = signal<boolean>(true);
   public selectedCategory = signal<string>('all');
+  public selectedProject = signal<Project | null>(null);
 
   public categories: Category[] = [
-    { label: 'Todos',      value: 'all' },
-    { label: 'Backend .NET', value: 'backend' },
-    { label: 'Full Stack',  value: 'fullstack' },
-    { label: 'QA Testing',  value: 'qa' }
+    { label: 'Todos',         value: 'all' },
+    { label: 'Backend .NET',  value: 'backend' },
+    { label: 'Full Stack',    value: 'fullstack' },
+    { label: 'Frontend',      value: 'frontend' },
+    { label: 'QA Testing',    value: 'qa' }
   ];
 
   public filteredProjects = computed(() => {
@@ -166,5 +177,13 @@ export class ProjectsComponent implements OnInit {
         this.isLoading.set(false);
       }
     });
+  }
+
+  openModal(project: Project): void {
+    this.selectedProject.set(project);
+  }
+
+  closeModal(): void {
+    this.selectedProject.set(null);
   }
 }
