@@ -24,11 +24,18 @@
   {
     "id": "poke-app",
     "name": "PokéApp",
-    "description": "Aplicación web interactiva desarrollada en Angular e integrada con la PokéAPI. Incluye explorador Pokédex de +1025 Pokémon, generador aleatorio, estadísticas gráficas de combate, cadenas evolutivas completas y soporte para modo oscuro.",
-    "technologies": ["Angular", "TypeScript", "PokéAPI", "REST API", "HTML5", "CSS3", "Netlify"],
+    "description": "Pokédex web interactivo con +1,025 Pokémon de todas las generaciones.",
+    "longDescription": "Aplicación web SPA construida en Angular que consume la PokéAPI REST. Implementa navegación por galería con todos los Pokémon de las 9 generaciones, modo Aleatorio para descubrir Pokémon al azar, perfil individual con estadísticas base mostradas en gráfica radar hexagonal y barras de progreso, cadena evolutiva completa de cada especie, sección de Estadísticas con ranking Top 10 filtrables por PS, Ataque, Defensa, At. Especial, Def. Especial y Velocidad, y soporte completo de modo oscuro.",
+    "technologies": ["Angular", "TypeScript", "PokéAPI", "REST API", "Netlify"],
     "github": "https://github.com/Manushark/PokeApp.git",
     "demo": "https://poke-appz.netlify.app/login",
     "image": "assets/images/pokeapp.png",
+    "screenshots": [
+      "assets/images/pokeapp-gallery.png",
+      "assets/images/pokeapp-detail.png",
+      "assets/images/pokeapp-stats.png",
+      "assets/images/pokeapp-types.png"
+    ],
     "featured": true,
     "category": "frontend"
   },
