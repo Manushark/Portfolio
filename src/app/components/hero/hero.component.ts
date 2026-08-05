@@ -5,7 +5,6 @@ import {
   signal,
   PLATFORM_ID,
   inject,
-  AfterViewInit,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { BadgeComponent } from '../../shared/components/badge/badge.component';
@@ -176,6 +175,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 
         <!-- 6. Action Buttons -->
         <div class="hero-item flex flex-wrap items-center justify-center gap-3">
+          <!-- Download CV (Español) -->
           <app-button
             variant="primary"
             size="md"
@@ -183,12 +183,14 @@ import { ButtonComponent } from '../../shared/components/button/button.component
             download="CV_Manuel_Rivas.pdf"
             target="_blank"
             customClass="w-full sm:w-auto">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>
-            <span>CV en Español</span>
+            <span>Descargar CV (ES)</span>
+            <span class="ml-1 px-1.5 py-0.5 text-[10px] font-mono bg-white/20 rounded font-semibold text-white">PDF</span>
           </app-button>
 
+          <!-- Download CV (English) -->
           <app-button
             variant="secondary"
             size="md"
@@ -196,12 +198,14 @@ import { ButtonComponent } from '../../shared/components/button/button.component
             download="CV_Manuel_Rivas_EN.pdf"
             target="_blank"
             customClass="w-full sm:w-auto">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            <svg class="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>
-            <span>CV in English</span>
+            <span>Download CV (EN)</span>
+            <span class="ml-1 px-1.5 py-0.5 text-[10px] font-mono bg-gray-200 dark:bg-white/15 rounded font-semibold text-gray-700 dark:text-gray-300">PDF</span>
           </app-button>
 
+          <!-- View Projects -->
           <app-button
             variant="outline"
             size="md"
