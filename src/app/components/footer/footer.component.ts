@@ -50,7 +50,7 @@ interface SocialLink {
     }
   `],
   template: `
-    <footer class="bg-gray-950 dark:bg-dark-bg border-t border-white/6">
+    <footer class="bg-slate-200/60 dark:bg-dark-bg border-t border-slate-300/80 dark:border-white/10 transition-colors duration-300">
       <!-- Gradient top accent -->
       <div class="h-px w-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"></div>
 
@@ -63,8 +63,8 @@ interface SocialLink {
               MR
             </div>
             <div>
-              <div class="text-white font-bold tracking-tight text-base">Manuel de Jesús Rivas</div>
-              <p class="text-xs text-gray-500 font-mono mt-0.5">Backend .NET · Angular · QA</p>
+              <div class="text-slate-900 dark:text-white font-bold tracking-tight text-base">Manuel de Jesús Rivas</div>
+              <p class="text-xs text-slate-500 dark:text-gray-400 font-mono mt-0.5">Backend .NET · Angular · QA</p>
             </div>
           </div>
 
@@ -76,7 +76,7 @@ interface SocialLink {
                 target="_blank"
                 rel="noopener noreferrer"
                 [attr.aria-label]="social.label"
-                class="social-btn w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-600 border border-white/8 hover:border-blue-600 text-gray-400 hover:text-white flex items-center justify-center shadow-sm">
+                class="social-btn w-10 h-10 rounded-xl bg-slate-300/60 dark:bg-white/5 hover:bg-blue-600 dark:hover:bg-blue-600 border border-slate-400/40 dark:border-white/10 text-slate-700 dark:text-gray-300 hover:text-white dark:hover:text-white flex items-center justify-center shadow-sm">
                 <svg class="w-4.5 h-4.5" [attr.fill]="social.fill ? 'currentColor' : 'none'" stroke="currentColor" [attr.stroke-width]="social.fill ? '0' : '2'" viewBox="0 0 24 24" aria-hidden="true">
                   <path [attr.stroke-linecap]="social.fill ? null : 'round'" [attr.stroke-linejoin]="social.fill ? null : 'round'" [attr.d]="social.iconPath"/>
                 </svg>
@@ -86,15 +86,15 @@ interface SocialLink {
         </div>
 
         <!-- Bottom bar -->
-        <div class="mt-10 pt-6 border-t border-white/6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-gray-500">
+        <div class="mt-10 pt-6 border-t border-slate-300/80 dark:border-white/6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-slate-500 dark:text-gray-500">
           <span>© {{ currentYear }} Manuel de Jesús Rivas Tavárez. Todos los derechos reservados.</span>
           <div class="flex items-center gap-1.5">
             <span>Construido con</span>
-            <span class="text-blue-500 font-semibold">Angular 19</span>
+            <span class="text-blue-600 dark:text-blue-500 font-semibold">Angular 19</span>
             <span>·</span>
-            <span class="text-blue-500 font-semibold">Tailwind CSS</span>
+            <span class="text-blue-600 dark:text-blue-500 font-semibold">Tailwind CSS</span>
             <span>·</span>
-            <span class="text-blue-500 font-semibold">Vercel</span>
+            <span class="text-blue-600 dark:text-blue-500 font-semibold">Vercel</span>
           </div>
         </div>
       </div>
