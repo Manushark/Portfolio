@@ -10,6 +10,10 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { BadgeComponent } from '../../shared/components/badge/badge.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 
+export interface TechTag {
+  name: string;
+}
+
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -166,10 +170,60 @@ import { ButtonComponent } from '../../shared/components/button/button.component
           y aplicaciones web con Angular.
         </p>
 
-        <!-- 5. Tech Tags -->
+        <!-- 5. Tech Tags with Brand Logos -->
         <div class="hero-item flex flex-wrap items-center justify-center gap-2 mb-10">
-          @for (tech of mainTechs; track tech) {
-            <app-badge variant="outline">{{ tech }}</app-badge>
+          @for (tech of mainTechs; track tech.name) {
+            <app-badge variant="outline">
+              @switch (tech.name) {
+                @case ('.NET 8') {
+                  <svg class="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                  </svg>
+                }
+                @case ('C#') {
+                  <svg class="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.5 3L3.5 7.5v9L11.5 21l8-4.5v-9L11.5 3zm0 2.3l5.7 3.2v6.4l-5.7 3.2-5.7-3.2v-6.4l5.7-3.2z"/>
+                  </svg>
+                }
+                @case ('SQL Server') {
+                  <svg class="w-3.5 h-3.5 text-red-500 dark:text-red-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                  </svg>
+                }
+                @case ('MongoDB') {
+                  <svg class="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c-.3 1.5-4 5.5-4 9.5 0 2.2 1.8 4 4 4s4-1.8 4-4c0-4-3.7-8-4-9.5z"/>
+                    <path d="M12 15.5V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                }
+                @case ('Angular') {
+                  <svg class="w-3.5 h-3.5 text-red-600 dark:text-red-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 5.5l1.5 13L12 22l8.5-3.5 1.5-13L12 2zm0 3.8l5.2 11.7h-2.1l-1.1-2.6H10l-1.1 2.6H6.8L12 5.8zm-1.2 7.1h2.4L12 9.9l-1.2 3z"/>
+                  </svg>
+                }
+                @case ('React/Vite') {
+                  <svg class="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <ellipse cx="12" cy="12" rx="9" ry="3.5"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                  </svg>
+                }
+                @case ('Postman') {
+                  <svg class="w-3.5 h-3.5 text-orange-500 dark:text-orange-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                  </svg>
+                }
+                @case ('QA Testing') {
+                  <svg class="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                }
+              }
+              <span>{{ tech.name }}</span>
+            </app-badge>
           }
         </div>
 
@@ -233,7 +287,16 @@ export class HeroComponent implements OnInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
 
   public currentRole = signal<string>('');
-  public mainTechs: string[] = ['.NET 8', 'C#', 'SQL Server', 'MongoDB', 'Angular', 'React/Vite', 'Postman', 'QA Testing'];
+  public mainTechs: TechTag[] = [
+    { name: '.NET 8' },
+    { name: 'C#' },
+    { name: 'SQL Server' },
+    { name: 'MongoDB' },
+    { name: 'Angular' },
+    { name: 'React/Vite' },
+    { name: 'Postman' },
+    { name: 'QA Testing' }
+  ];
 
   private roles: string[] = [
     'Junior Software Developer',
