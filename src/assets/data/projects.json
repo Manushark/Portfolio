@@ -1,5 +1,24 @@
 [
   {
+    "id": "spendly",
+    "name": "Spendly",
+    "description": "Plataforma full-stack de gestión financiera personal desarrollada en .NET 8 con Clean Architecture, automatización de gastos y métricas en tiempo real.",
+    "longDescription": "Plataforma web full-stack de gestión financiera personal desarrollada en .NET 8 bajo Clean Architecture y principios de Domain-Driven Design (DDD). Se compone de una API REST (Spendly.Api) asegurada con JWT y BCrypt, y una interfaz MVC moderna (Spendly.Web). Incluye gestión de flujo de caja (ingresos/gastos con etiquetas), presupuestos mensuales con alertas inteligentes por correo e in-app (80% y 100%), motor de gastos recurrentes automáticos mediante IHostedService en segundo plano, metas de ahorro con barra de progreso, dashboard interactivo con ApexCharts y Chart.js, reporte semanal automático (Weekly Digest) los lunes a las 8:00 AM, exportación a CSV/PDF, soporte PWA e internacionalización completa en español e inglés.",
+    "technologies": [".NET 8", "C#", "Clean Architecture", "EF Core", "SQL Server", "REST API", "JWT", "ApexCharts", "Azure", "i18n"],
+    "github": "https://github.com/Manushark/Spendly",
+    "demo": "https://spendly-web-cncja8b2edephcd6.westus2-01.azurewebsites.net/",
+    "image": "assets/images/spendly.png",
+    "screenshots": [
+      "assets/images/spendly.png",
+      "assets/images/spendly-panel.png",
+      "assets/images/spendly-dashboard.png",
+      "assets/images/spendly-savings.png",
+      "assets/images/spendly-recurring.png"
+    ],
+    "featured": true,
+    "category": "fullstack"
+  },
+  {
     "id": "travel-manager",
     "name": "TravelManager",
     "description": "Sistema completo de gestión y reserva de viajes con autenticación JWT, panel de administración y consulta de itinerarios en tiempo real.",
