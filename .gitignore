@@ -10,13 +10,16 @@
 /dist
 /.angular
 
-# misc
-.DS_Store
+# environment & secrets
+/src/environments/environment*.ts
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# misc
+.DS_Store
 
 # IDEs
 .vscode/
