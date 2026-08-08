@@ -4,9 +4,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
-
-// Clave de API de Web3Forms de Manuel Rivas
-const WEB3FORMS_ACCESS_KEY = '3b541f20-633f-432f-91cb-7c9b05c49b0e';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -329,8 +327,8 @@ export class ContactComponent {
     this.isSubmitting.set(true);
 
     try {
-      // Envío real a la API de Web3Forms
-      if (WEB3FORMS_ACCESS_KEY) {
+      // Envío real a la API de Web3Forms desde la configuración de entorno
+      if (environment.web3FormsAccessKey) {
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
@@ -338,7 +336,7 @@ export class ContactComponent {
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            access_key: WEB3FORMS_ACCESS_KEY,
+            access_key: environment.web3FormsAccessKey,
             name: this.contactForm.value.name,
             email: this.contactForm.value.email,
             message: this.contactForm.value.message,
