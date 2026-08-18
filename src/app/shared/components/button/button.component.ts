@@ -78,6 +78,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
         [href]="href"
         [target]="target"
         [download]="download"
+        (click)="onAnchorClick($event)"
         [class]="'btn-base inline-flex items-center justify-center font-semibold rounded-full select-none whitespace-nowrap ' + getSizeClasses() + ' ' + getVariantClasses() + ' ' + customClass">
         <span class="btn-content">
           <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
@@ -108,6 +109,17 @@ export class ButtonComponent {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() disabled: boolean = false;
   @Input() customClass: string = '';
+
+  onAnchorClick(event: MouseEvent): void {
+    if (this.href && this.href.startsWith('#')) {
+      event.preventDefault();
+      const targetId = this.href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 
   getSizeClasses(): string {
     switch (this.size) {
