@@ -84,7 +84,7 @@ interface Category {
         <app-section-header
           titlePrefix="Proyectos"
           titleHighlight="Destacados"
-          subtitle="Proyectos reales con stack .NET, Angular, React y QA">
+          subtitle="Proyectos reales desarrollados con .NET 8, Clean Architecture y Angular">
         </app-section-header>
 
         <!-- Filter Buttons -->
@@ -107,7 +107,7 @@ interface Category {
         <!-- Loading Skeletons -->
         @if (isLoading()) {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            @for (i of [1, 2, 3]; track i) {
+            @for (i of [1, 2]; track i) {
               <div class="skeleton-card h-96 rounded-2xl"></div>
             }
           </div>
@@ -154,11 +154,9 @@ export class ProjectsComponent implements OnInit {
   public selectedProject = signal<Project | null>(null);
 
   public categories: Category[] = [
-    { label: 'Todos',         value: 'all' },
-    { label: 'Backend .NET',  value: 'backend' },
-    { label: 'Full Stack',    value: 'fullstack' },
-    { label: 'Frontend',      value: 'frontend' },
-    { label: 'QA Testing',    value: 'qa' }
+    { label: 'Todos',      value: 'all' },
+    { label: 'Full Stack', value: 'fullstack' },
+    { label: 'Frontend',   value: 'frontend' }
   ];
 
   public filteredProjects = computed(() => {
