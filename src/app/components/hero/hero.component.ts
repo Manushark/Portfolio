@@ -268,7 +268,7 @@ export interface TechTag {
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
             </svg>
-            <span>Ver Proyectos</span>
+            <span>Ver Mi Trabajo</span>
           </app-button>
         </div>
 
