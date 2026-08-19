@@ -89,13 +89,7 @@ Los archivos compilados y optimizados se generarán en el directorio `dist/portf
 
 ## ⚡ Despliegue en Vercel
 
-El proyecto cuenta con el archivo `vercel.json` configurado para manejar el enrutamiento de la SPA y CI/CD automático en **Vercel**:
-
-1. Sube tu código a un repositorio de GitHub.
-2. Ingresa a [Vercel](https://vercel.com/) e inicia sesión con tu cuenta de GitHub.
-3. Haz clic en **"Add New Project"** e importa tu repositorio.
-4. Selecciona el Preset de Framework **Angular**.
-5. Haz clic en **Deploy**.
+https://portfolio-gamma-ten-aai55z7ve8.vercel.app/
 
 ---
 
